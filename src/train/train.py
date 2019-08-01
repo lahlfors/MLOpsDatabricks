@@ -39,10 +39,15 @@ PARSER.add_argument('--AZUREML_ARM_PROJECT_NAME')
 PARSER.add_argument('--AZUREML_SCRIPT_DIRECTORY_NAME')
 PARSER.add_argument('--AZUREML_RUN_TOKEN_EXPIRY')
 PARSER.add_argument('--AZUREML_SERVICE_ENDPOINT')
+PARSER.add_argument('--NUM_EPOCHS')
 PARSER.add_argument('--MODEL_PATH')
 ARGS = PARSER.parse_args()
 
-NUM_EPOCHS = 1
+if ARGS.MODEL_PATH == "":
+    NUM_EPOCHS = 5
+else:
+    NUM_EPOCHS = int(ARGS.NUM_EPOCHS)
+
 BATCH_SIZE = 100
 LEARNING_RATE = 0.001
 TRAIN_LOADER = torch.utils.data.DataLoader(
