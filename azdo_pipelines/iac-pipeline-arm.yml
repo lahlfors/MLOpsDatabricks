@@ -12,7 +12,7 @@ pool:
 variables:
   baseName: $[coalesce(variables['baseNameOverride'], 'mlopsdb')]
   location: $[coalesce(variables['locationOverride'], 'eastus2')]
-  azuresub: $[coalesce(variables['azuresubOverride'], 'amlconnection')]
+  azuresub: $[coalesce(variables['azuresubOverride'], 'amlconnect')]
 
 steps:
 - task: AzureResourceGroupDeployment@2
